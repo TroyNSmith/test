@@ -161,7 +161,7 @@ $ORCA_EXE scan.inp > scan.log
 cp "scan.log" "$SUBMIT_DIR/scan.log"
 
 echo "Starting FREQ at $(date)"
-$ORCA_EXE freq.inp > "$SUBMIT_DIR/freq.log"
+$ORCA_EXE freq.inp > freq.log
 cp "freq.log" "$SUBMIT_DIR/freq.log"
 
 echo "Starting CALC at $(date)"
