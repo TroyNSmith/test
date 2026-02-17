@@ -160,9 +160,19 @@ echo "Starting SCAN at $(date)"
 $ORCA_EXE scan.inp > scan.log
 cp "scan.log" "$SUBMIT_DIR/scan.log"
 
+if ! grep -q "ORCA TERMINATED NORMALLY" scan.log; then
+    echo "SCAN failed. Exiting."
+    exit 1
+fi
+
 echo "Starting FREQ at $(date)"
 $ORCA_EXE freq.inp > freq.log
 cp "freq.log" "$SUBMIT_DIR/freq.log"
+
+if ! grep -q "ORCA TERMINATED NORMALLY" freq.log; then
+    echo "OPTTS / FREQ failed. Exiting."
+    exit 1
+fi
 
 echo "Starting CALC at $(date)"
 $ORCA_EXE calc.inp > calc.log

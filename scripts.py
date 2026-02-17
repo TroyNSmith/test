@@ -392,10 +392,11 @@ def process_rdkit_reaction(reactant: Mol, product_sets: list[Mol]):
                         if len(formed) > 0:
                             for formed_bond in formed:
                                 shared = broken_bond & formed_bond
+                                shared_idx = next(iter(shared))
                                 if len(shared) == 1:
                                     c = next(iter(formed_bond - shared))
-                                    dist = dmat_angstrom[b, c]
-                                    active_atoms = f"{b} {c}"
+                                    dist = dmat_angstrom[shared_idx, c]
+                                    active_atoms = f"{shared_idx} {c}"
                                     scan = (
                                         f"scan B {active_atoms} = {dist:.3f}, 0.7, 100"
                                     )
