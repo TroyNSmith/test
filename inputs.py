@@ -133,7 +133,7 @@ TRANSITION_SH = """#!/bin/bash
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=6G
-#SBATCH --time=12:00:00
+#SBATCH --time=16:00:00
 #SBATCH --gres=lscratch:100
 #SBATCH --signal=B:USR1@60
 
